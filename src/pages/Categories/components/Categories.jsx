@@ -25,7 +25,12 @@ const Categories = () => {
   },[])
   return (
     <>
-     <Swiper  
+     {categories.map(category=>
+      <div key={category.id} >
+      <img src={category.image.secure_url} className='swiper-img' />
+      </div>
+    )}
+     {/* <Swiper  
       modules={[EffectCoverflow,Navigation, Pagination, A11y]} 
       effect={'coverflow'}
        coverflowEffect={{
@@ -61,7 +66,7 @@ const Categories = () => {
         </div>
 
     </Swiper>
-  
+   */}
     
     </>
   )
