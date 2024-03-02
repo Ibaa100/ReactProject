@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar/Navbar'
 import { NavLink } from 'react-router-dom'
 const NotFound = () => {
   return (
