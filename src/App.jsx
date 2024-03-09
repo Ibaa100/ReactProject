@@ -8,12 +8,15 @@ import Register from './pages/Register/components/Register.jsx';
 import Contact from './pages/Contact/components/Contact.jsx';
 import About from './pages/About/components/About.jsx'
 import Cart from './pages/Cart/components/Cart.jsx'
-import NotFound from './pages/NotFound/components/NotFound.jsx';
+import NotFound from './components/NotFound.jsx';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ProtectedRoutes from './components/ProtectedRoutes.jsx';
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -23,12 +26,8 @@ const App = () => {
     children:[
       {
         path: "/",
-        element: <Categories/>
+        element: <Home/>
       },
-    {
-      path: "/home",
-      element: <Categories/>
-    },
     {
       path:"/about",
       element:<About/>
@@ -39,17 +38,32 @@ const App = () => {
       element: <Contact/>
     },
     {
-      path: "/products",
+      path:'/products',
+      element: <Products/>
+    },
+    {
+      path: '/products/:name/:id',
       element: <Products/>
     }, 
+    
     {
       path: "/categories",
       element: <Categories/>
     }, 
     {
       path: "/cart",
-      element: <Cart/>
+      element: <ProtectedRoutes>
+        <Cart/>
+        </ProtectedRoutes>
     }, 
+    {
+      path: "/register",
+      element: <Register/>
+    }, 
+    {
+      path: "/login",
+      element: <Login/>
+    },
     {
       path:"*",
       element:<NotFound/>
@@ -58,7 +72,22 @@ const App = () => {
 }]);
   
   return (
+    <>
     <RouterProvider router={router} />
+    <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+transition: Zoom
+/>
+</>
   )
 }
 
