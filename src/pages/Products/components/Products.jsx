@@ -71,7 +71,7 @@ const Products = () => {
         )}
         <div>
           <div className="d-flex align-items-center flex-column ">
-            {products.map((product) => (
+            {products.length>0?(products.map((product) => (
               <div className="col-sm-4 col-md-6 col-xl-8 my-2" key={product._id}>
                 <div className="card shadow p-3  bg-body-white rounded border rounded-3">
                   <div className="card-body">
@@ -147,7 +147,9 @@ const Products = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))):(
+              <div className="fs-4 fw-semibold my-4">No products</div>
+            )}
           </div>
         </div>
       </div>

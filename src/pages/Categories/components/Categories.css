@@ -17,9 +17,10 @@ body {
 .swiper {
   border-radius: 30px;
   width: 90%;
-  height: 400px;
-  margin-top: 50px;
-  padding-bottom: 50px;
+  height: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   border: 2px solid rgb(198, 31, 31);
   box-shadow: 5px 5px 10px 5px rgb(215, 215, 215);
   
@@ -32,6 +33,7 @@ body {
   height: 200px;
   margin-top: 10px !important;
   display: flex !important;
+  align-items: center !important;
   justify-content: center !important;
 }
 

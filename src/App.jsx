@@ -17,6 +17,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ProtectedRoutes from './components/ProtectedRoutes.jsx';
+import SendCode from './pages/SendCode/components/SendCode';
+import ResetPassword from './pages/ResetPassword/components/ResetPassword.jsx';
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -63,6 +65,14 @@ const App = () => {
     {
       path: "/login",
       element: <Login/>
+    },
+    {
+      path: "/sendcode",
+      element: <SendCode/>
+    },
+    {
+      path: "/resetpassword",
+      element: <ResetPassword/>
     },
     {
       path:"*",

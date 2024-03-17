@@ -48,6 +48,7 @@ const Categories = () => {
   }
   return (
     <>
+    <h2 className="text-center pt-4">Our Categories</h2>
       <Swiper
         breakpoints={{
           200: {

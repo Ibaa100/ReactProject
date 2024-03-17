@@ -50,7 +50,7 @@ const handleLoginButtonClick=()=>{
   </nav>
   <nav className="navbar navbar-expand-lg bg-white border-top border-danger shadow-sm">
   <div className="container">
-    <NavLink className="navbar-brand " to="/">Capital shop</NavLink>
+    <NavLink className="navbar-brand fw-bold " to="/">Capital shop</NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon" />
     </button>

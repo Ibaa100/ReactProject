@@ -10,7 +10,7 @@ const NotFound = () => {
     <p className="lead">
       The page you’re looking for doesn’t exist.
     </p>
-    <NavLink to="/home" className="btn btn-danger">Go Home</NavLink>
+    <NavLink to="/" className="btn btn-danger">Go Home</NavLink>
   </div>
 </div>
 
