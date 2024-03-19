@@ -1,3 +1,6 @@
 .nav-link.active {
     border-bottom: 2px solid rgb(196, 40, 40);
 }
+.point {
+    cursor: pointer;
+}

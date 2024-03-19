@@ -1,0 +1,13 @@
+
+.small-img-group {
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col {
+    flex-basis: 30%;
+    cursor: pointer;
+}
+.sproduct select {
+    display: block;
+    padding: 5px 10px;
+}

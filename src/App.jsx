@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Root from './routes/Root';
 import  Home from './pages/Home/components/Home.jsx'
 import Products from './pages/Products/components/Products.jsx';
@@ -19,11 +19,14 @@ import {
 import ProtectedRoutes from './components/ProtectedRoutes.jsx';
 import SendCode from './pages/SendCode/components/SendCode';
 import ResetPassword from './pages/ResetPassword/components/ResetPassword.jsx';
+import Detials from './pages/Detials/components/Detials.jsx';
+import UserContextProvider from './components/Context/User.jsx';
 const App = () => {
+  const[userName,setUserName]=useState([])
   const router = createBrowserRouter([
     {
     path: "/",
-    element:<Root/>,
+    element:<Root userName={userName}/>,
     errorElement:<NotFound/>,
     children:[
       {
@@ -60,7 +63,9 @@ const App = () => {
     }, 
     {
       path: "/register",
-      element: <Register/>
+      element:
+      
+       <Register/>
     }, 
     {
       path: "/login",
@@ -75,6 +80,10 @@ const App = () => {
       element: <ResetPassword/>
     },
     {
+      path: "/products/:id",
+      element: <Detials/>
+    },
+    {
       path:"*",
       element:<NotFound/>
     }
@@ -83,7 +92,9 @@ const App = () => {
   
   return (
     <>
-    <RouterProvider router={router} />
+    <UserContextProvider>
+      <RouterProvider router={router} />
+      </UserContextProvider>
     <ToastContainer
 position="top-center"
 autoClose={5000}

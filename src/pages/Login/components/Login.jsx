@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Login.css'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 import {  Zoom, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import LoaderBtn from '../../../components/Loader/LoaderBtn';
+import { UserContext } from '../../../components/Context/User';
 const Login = () => {
+  const {setUserToken}=useContext(UserContext)
   const[loader,setLoader]=useState(false);
  const navigate=useNavigate();
   const [user,setUser]=useState({
@@ -29,7 +31,7 @@ const Login = () => {
         email: user.email,
         password:user.password
       });
-      localStorage.setItem('userToken',data.token);
+      console.log(data)
       if(data.message=='success'){
         toast.success('you are login successfully 👌', {
           position: "top-center",
@@ -42,7 +44,8 @@ const Login = () => {
           theme: "dark",
           transition: Zoom,
           });
-          console.log(data);
+          localStorage.setItem('userToken',data.token);
+          setUserToken(data.token);
           navigate('/');
           {
             const reg=document.querySelector('.reg');
