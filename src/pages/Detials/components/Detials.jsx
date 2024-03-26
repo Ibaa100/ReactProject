@@ -25,7 +25,6 @@ const Detials = () => {
        try {const {data}=await axios.get(`${import.meta.env.VITE_API_URL}/products/${id}`);
         setProduct(data.product);
         setAvgRating(Math.ceil(data.avgRating));
-        console.log(data)
     }catch(error){
 
     }finally{

@@ -11,7 +11,6 @@ const SendCode = () => {
   const navigate=useNavigate();
   const handelChange=(e)=>{
     setEmail(e.target.value)
-    console.log(e.target.value);
   }
 
   const handelSubmit=async(e)=>{
@@ -38,7 +37,6 @@ const SendCode = () => {
     }
 
     }catch(error){
-      console.log(error.response.data.message)
           toast.error(error.response.data.message, {
             position: "top-center",
             autoClose: 5000,
