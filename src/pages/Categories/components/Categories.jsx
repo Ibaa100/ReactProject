@@ -14,6 +14,7 @@ import Loader from "../../../components/Loader/Loader";
 import ErrorLoad from "./../../../components/ErrorLoad";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import {  Zoom, toast } from 'react-toastify';
 
 const Categories = () => {
   const navigate = useNavigate();
@@ -31,13 +32,23 @@ const Categories = () => {
     } catch (error) {
       setLodaer(false);
       setError(true);
+      toast.error(error.response.data.message, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Zoom,
+        });
     }
   };
   useEffect(() => {
     getCategories();
   }, []);
   const handel = async (category) => {
-    console.log(category.name);
     navigate(`/products/${category.name}/${category._id}`);
   };
   if (loader) {

@@ -11,3 +11,12 @@
     display: block;
     padding: 5px 10px;
 }
+#MainImage {
+    height: 500px;
+}
+.sproduct{
+    padding-bottom: 10px;
+}
+.comment {
+    margin:0 80px;
+}

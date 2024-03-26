@@ -2,6 +2,8 @@ import React from 'react'
 import Categories from '../../Categories/components/Categories'
 import './Home.css'
 import Footer from '../../../components/Footer/Footer'
+import DetialsShop from './../../DetailsShop/components/DetialsShop';
+import About from '../../About/components/About';
 const Home = () => {
   return (
     <>
@@ -12,7 +14,9 @@ const Home = () => {
         <a href="/products"className=' rounded-pill text-decoration-none bg-danger text-white px-4 py-2 fw-bold'>Shop Now</a>
       </div>
       </div>
+      <DetialsShop/>
     <Categories/>
+    <About/>
     <Footer/>
     </>
   )

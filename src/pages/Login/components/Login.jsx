@@ -31,7 +31,6 @@ const Login = () => {
         email: user.email,
         password:user.password
       });
-      console.log(data)
       if(data.message=='success'){
         toast.success('you are login successfully 👌', {
           position: "top-center",
@@ -45,6 +44,7 @@ const Login = () => {
           transition: Zoom,
           });
           localStorage.setItem('userToken',data.token);
+          localStorage.setItem('email',user.email);
           setUserToken(data.token);
           navigate('/');
           {
@@ -58,6 +58,8 @@ const Login = () => {
           }
     }
     }catch(error){
+      if (error.response && error.response.data && error.response.data.message) {
+      
         toast.error(error.response.data.message, {
           position: "top-center",
           autoClose: 3000,
@@ -69,6 +71,7 @@ const Login = () => {
           theme: "dark",
           transition: Zoom,
           });
+        }
           setUser(
             {
               email:'',
@@ -91,7 +94,7 @@ const Login = () => {
             <div className="card shadow-lg p-3 mb-5 bg-light-subtle rounded " style={{borderRadius: 15}}>
               <div className="card-body pt-3 px-5">
                 <h4 className=" text-center mb-4">Login </h4>
-                <form onSubmit={handelSubmit}>
+                <form onSubmit={ handelSubmit}>
                   <div className="form-outline mb-2">
                   <label className="form-label" htmlFor="form5Example3cg">Your Email</label>
                     <input type="email" id="form5Example3cg" className="form-control form-control-lg" name="email" onChange={handelChange} value={user.email}/>

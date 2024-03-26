@@ -4,3 +4,9 @@
 .point {
     cursor: pointer;
 }
+.count {
+    width: 20px;
+    height: 20px;
+    left: 24px;
+    bottom: 15px;
+}

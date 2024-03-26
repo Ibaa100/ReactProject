@@ -1,0 +1,9 @@
+.mainFooter {
+    height: 300px;
+}
+.listitem:hover{
+    border-bottom: 2px solid rgb(196, 40, 40);
+}
+.colorAbout {
+    color: rgb(133, 127, 127);
+}

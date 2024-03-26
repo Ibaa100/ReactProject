@@ -21,6 +21,12 @@ import SendCode from './pages/SendCode/components/SendCode';
 import ResetPassword from './pages/ResetPassword/components/ResetPassword.jsx';
 import Detials from './pages/Detials/components/Detials.jsx';
 import UserContextProvider from './components/Context/User.jsx';
+import ShopingCartContextProvider, { ShopingCartContext } from './components/Context/ShopingCart.jsx';
+import Order from './pages/Order/components/Order';
+import Profile from './pages/profile/components/Profile';
+import InfoUser from './pages/InfoUser/components/InfoUser.jsx';
+import MyOrder from './pages/MyOrder/components/MyOrder.jsx';
+
 const App = () => {
   const[userName,setUserName]=useState([])
   const router = createBrowserRouter([
@@ -62,6 +68,12 @@ const App = () => {
         </ProtectedRoutes>
     }, 
     {
+      path:"/order",
+      element: <ProtectedRoutes>
+        <Order/>
+      </ProtectedRoutes>
+    },
+    {
       path: "/register",
       element:
       
@@ -84,16 +96,35 @@ const App = () => {
       element: <Detials/>
     },
     {
+      path: "/profile",
+      element: <ProtectedRoutes><Profile/></ProtectedRoutes>,
+      children:[
+        {
+          path: '',
+          element: <InfoUser/>
+        },{
+          path: 'contact',
+          element:<Contact/>
+        },{
+          path: 'order',
+          element: <MyOrder/>
+        }
+      ]
+    },
+    {
       path:"*",
       element:<NotFound/>
-    }
+    },
+      
     ]
 }]);
   
   return (
     <>
     <UserContextProvider>
+      <ShopingCartContextProvider>
       <RouterProvider router={router} />
+      </ShopingCartContextProvider>
       </UserContextProvider>
     <ToastContainer
 position="top-center"
