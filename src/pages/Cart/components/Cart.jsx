@@ -13,12 +13,13 @@ import Loader from '../../../components/Loader/Loader';
 
 const Cart = () => {
   const navigate= useNavigate();
-    const {cartItems,countItems,setCartItems,setCountItems,loader}=useContext(ShopingCartContext);
+    const {cartItems,countItems,setCountItems, getProductsInCart    }=useContext(ShopingCartContext);
     const {userToken}=useContext(UserContext)
     const[loaderBtn,setLoaderBtn]=useState(false)
     const[loaderBtn1,setLoaderBtn1]=useState(false)
     const[loaderBtnInc,setLoaderBtnInc]=useState(false)
     const[loaderBtnDec,setLoaderBtnDec]=useState(false)
+    const [quantity,setQuantity]=useState(0);
     const removeItem=async (id)=>{
       try{
         setLoaderBtn(true)
@@ -29,7 +30,7 @@ const Cart = () => {
       },{
         headers: { Authorization: `Tariq__${userToken}` }
       });
-      setCountItems(data.cart.products.length)
+      getProductsInCart();
       toast.success('you are deleted item successfully 👌', {
         position: "top-center",
         autoClose: 3000,
@@ -67,7 +68,7 @@ const Cart = () => {
       const {data}=await axios.patch(`${import.meta.env.VITE_API_URL}/cart/clear`,null,{
       headers: { Authorization: `Tariq__${userToken}` }
     })
-    setCountItems(0)
+    getProductsInCart();
     toast.success('you are deleted all items successfully 👌', {
       position: "top-center",
       autoClose: 3000,
@@ -103,6 +104,8 @@ setLoaderBtn1(false);
     },{
       headers: { Authorization: `Tariq__${userToken}` }
     })
+    getProductsInCart();
+    
   }catch(error){
     toast.error(error.response.data.message, {
       position: "top-center",
@@ -130,6 +133,7 @@ setLoaderBtnInc(false)
     },{
       headers: { Authorization: `Tariq__${userToken}` }
     })
+    getProductsInCart();
   }catch(error){
   }finally{
     setLoaderBtnDec(false)

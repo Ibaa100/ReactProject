@@ -41,11 +41,11 @@ const ShopingCartContextProvider = ({ children }) => {
 
   useEffect(() => {
     getProductsInCart();
-  }, [countItems, cartItems]);
+  }, [countItems]);
 
   return (
     <ShopingCartContext.Provider
-      value={{ cartItems, countItems, setCartItems, setCountItems, loader }}
+      value={{ cartItems, countItems, setCartItems, setCountItems, loader ,getProductsInCart}}
     >
       {children}
     </ShopingCartContext.Provider>
