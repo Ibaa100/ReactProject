@@ -139,7 +139,7 @@ const handelSubmit=async(e)=>{
                 </div>
                 <div className="form-outline mb-2">
                 <label className="form-label" htmlFor="form3Example3cg">Password</label>
-                  <input type="password" id="form3Example3cg" className="form-control form-control-lg" name="password"onChange={handelChange} value={user.password}/>
+                  <input type="password" id="form3Example3cg" className="form-control form-control-lg" name="password"onChange={handelChange} value={user.password} autoComplete="current-password"/>
                   <p className='text-danger'>{errors.password}</p>
 
                 </div>

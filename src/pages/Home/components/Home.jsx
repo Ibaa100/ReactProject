@@ -17,7 +17,6 @@ const Home = () => {
       <DetialsShop/>
     <Categories/>
     <About/>
-    <Footer/>
     </>
   )
 }

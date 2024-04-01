@@ -17,6 +17,7 @@ const Root = ({userName}) => {
 <div className="d-flex flex-column content">
     <Navbar userName={userName} />
     <Outlet/>
+    <Footer/>
     </div>
  
       )

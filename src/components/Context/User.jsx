@@ -7,9 +7,10 @@ const UserContextProvider=({children})=>{
     const[userName,setUserName]=useState(null);
     const[email,setEmail]=useState(null);
     const getUserData=()=>{
-        if(userToken!=null){
-            const decoded = jwtDecode(userToken);
-            setUserName(decoded.userName)
+        if (userToken ) {
+              const decoded = jwtDecode(userToken);
+                setUserName(decoded.userName);
+         
         }
     }
     

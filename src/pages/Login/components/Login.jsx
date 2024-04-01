@@ -97,11 +97,11 @@ const Login = () => {
                 <form onSubmit={ handelSubmit}>
                   <div className="form-outline mb-2">
                   <label className="form-label" htmlFor="form5Example3cg">Your Email</label>
-                    <input type="email" id="form5Example3cg" className="form-control form-control-lg" name="email" onChange={handelChange} value={user.email}/>
+                    <input type="email" id="form5Example3cg" className="form-control form-control-lg" name="email" onChange={handelChange} value={user.email} />
                   </div>
                   <div className="form-outline mb-2">
                   <label className="form-label" htmlFor="form5Example4cg">Password</label>
-                    <input type="password" id="form5Example4cg" className="form-control form-control-lg" name="password" onChange={handelChange} value={user.password}/>
+                    <input type="password" id="form5Example4cg" className="form-control form-control-lg" name="password" onChange={handelChange} value={user.password} />
                     <NavLink to="/sendcode" className="text-danger fw-bold">Forgret your password</NavLink><span className="text-danger fw-bold">?</span>
                   </div> 
                   <div className="d-flex justify-content-center">
